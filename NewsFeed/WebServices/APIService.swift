@@ -39,6 +39,12 @@ class APIService: NSObject {
             }
             debugPrint(httpResponse.statusCode)
             
+            guard  httpResponse.statusCode == 200 else {
+                let error = ServiceError.objectSerialization("No data in response")
+                completion(nil, error)
+                return
+            }
+            
             do {
                 let resultantModel = try JSONDecoder().decode(resultModel.self, from: responseData)
                 completion(resultantModel, nil)

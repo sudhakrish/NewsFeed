@@ -16,9 +16,9 @@ extension URLRequest {
         guard var urlRequest = urlRequestWithDefaultConfig(urlString) else {
             return nil
         }
-        urlRequest.httpMethod = "GET"
-        urlRequest.addValue("20891a1b4504ddc33d42501f9c8d2215fbe85008", forHTTPHeaderField: "consumer-secret")
-        urlRequest.addValue("mobile_dev", forHTTPHeaderField: "consumer-key")
+        urlRequest.httpMethod = kGetMethod
+        urlRequest.addValue(kConsumerSecretValue, forHTTPHeaderField: kConsumerSecretKey)
+        urlRequest.addValue(kConsumerValue, forHTTPHeaderField: kConsumerKey)
         
         return urlRequest
     }
@@ -29,7 +29,7 @@ extension URLRequest {
         guard var urlRequest = urlRequestWithDefaultConfig(urlString) else {
             return nil
         }
-        urlRequest.httpMethod = "POST"
+        urlRequest.httpMethod = kPostMethod
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         if let requestBody = requestJson {
             do {

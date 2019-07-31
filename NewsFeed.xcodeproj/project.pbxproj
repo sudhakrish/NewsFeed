@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A359DE022F20341006B33B0 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A359DDF22F20341006B33B0 /* AlertExtension.swift */; };
 		2A9415FA22F0BA3D00EBB375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9415F922F0BA3D00EBB375 /* AppDelegate.swift */; };
 		2A9415FF22F0BA3D00EBB375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9415FD22F0BA3D00EBB375 /* Main.storyboard */; };
 		2A94160122F0BA3F00EBB375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A94160022F0BA3F00EBB375 /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2A359DDF22F20341006B33B0 /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
 		2A9415F622F0BA3D00EBB375 /* NewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9415F922F0BA3D00EBB375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A9415FE22F0BA3D00EBB375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				2A94162E22F0D26100EBB375 /* ImageExtension.swift */,
 				2A94163022F0D2A100EBB375 /* RequestExtension.swift */,
+				2A359DDF22F20341006B33B0 /* AlertExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				2A94162C22F0CA1700EBB375 /* NewsCellViewModel.swift in Sources */,
 				2A9415FA22F0BA3D00EBB375 /* AppDelegate.swift in Sources */,
 				2A94163122F0D2A100EBB375 /* RequestExtension.swift in Sources */,
+				2A359DE022F20341006B33B0 /* AlertExtension.swift in Sources */,
 				2A94162822F0BC6100EBB375 /* NewsTableCell.swift in Sources */,
 				2A94162422F0BC2E00EBB375 /* NewsFeedViewModel.swift in Sources */,
 				2A94163722F0DBCA00EBB375 /* LoginModel.swift in Sources */,
