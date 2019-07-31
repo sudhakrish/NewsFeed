@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func submitAction(_ sender: UIButton) {
         
-        guard let eid = eidTextField.text, viewModel.isValid(eid) else {
+        guard let eid = eidTextField.text, viewModel.isValid(eid), let eidNumber = Int(eid) else {
             self.presentAlert(withTitle: kAlertTitle, message: AlertMessage.eEid.description)
             return
         }
@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
             return
         }
 
-        guard let id = idTextField.text, viewModel.isValid(id) else {
+        guard let id = idTextField.text, viewModel.isValid(id), let idNumber = Int(id) else {
             self.presentAlert(withTitle: kAlertTitle, message: AlertMessage.eId.description)
             return
         }
@@ -75,7 +75,7 @@ class LoginViewController: UIViewController {
             return
         }
 
-        guard let unifiedNumber = unifiedNumberTextField.text, viewModel.isValid(unifiedNumber) else {
+        guard let unifiedNumber = unifiedNumberTextField.text, viewModel.isValid(unifiedNumber), let unified = Int(unifiedNumber) else {
             self.presentAlert(withTitle: kAlertTitle, message: AlertMessage.eUnified.description)
             return
         }
@@ -95,7 +95,7 @@ class LoginViewController: UIViewController {
             return
         }
 
-        viewModel.body = ["eid" : eid, "name" : name, "idbarahno" : id, "emailaddress" : email, "unifiednumber" : unifiedNumber, "mobileno" : mobile]
+        viewModel.body = ["eid" : eidNumber, "name" : name, "idbarahno" : idNumber, "emailaddress" : email, "unifiednumber" : unified, "mobileno" : mobile]
         
         // Call Login API with parameters
 
