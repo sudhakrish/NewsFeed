@@ -17,9 +17,8 @@ extension URLRequest {
             return nil
         }
         urlRequest.httpMethod = kGetMethod
-        urlRequest.addValue(kConsumerSecretValue, forHTTPHeaderField: kConsumerSecretKey)
-        urlRequest.addValue(kConsumerValue, forHTTPHeaderField: kConsumerKey)
-        
+        urlRequest.addHeaders(request: &urlRequest)
+
         return urlRequest
     }
     
@@ -30,7 +29,9 @@ extension URLRequest {
             return nil
         }
         urlRequest.httpMethod = kPostMethod
-        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.addHeaders(request: &urlRequest)
+        urlRequest.setValue(kContentTypeValue, forHTTPHeaderField: kContentTypeKey)
+
         if let requestBody = requestJson {
             do {
                 urlRequest.httpBody = try JSONSerialization.data(withJSONObject: requestBody, options: .prettyPrinted)
@@ -40,6 +41,13 @@ extension URLRequest {
         }
         
         return urlRequest
+    }
+    
+    private func addHeaders( request: inout URLRequest)  {
+        
+        request.addValue(kConsumerSecretValue, forHTTPHeaderField: kConsumerSecretKey)
+        request.addValue(kConsumerValue, forHTTPHeaderField: kConsumerKey)
+        
     }
     
     // Form URLRequest
@@ -53,3 +61,5 @@ extension URLRequest {
     }
     
 }
+
+

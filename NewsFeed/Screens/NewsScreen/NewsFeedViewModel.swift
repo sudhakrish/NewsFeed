@@ -54,8 +54,9 @@ class NewsFeedViewModel: NSObject {
     /*
      Form News API Url
      */
+    
     private var newsUrl: String {
-        return baseUrl + "/public/v1/news?local=en"
+        return baseUrl + SuffixUrl.eNews.url
     }
     
     private var newsRequest:URLRequest  {

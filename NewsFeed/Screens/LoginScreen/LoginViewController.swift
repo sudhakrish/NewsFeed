@@ -21,7 +21,9 @@ class LoginViewController: UIViewController {
     
     private let viewModel = LoginViewModel()
     private let kAlertTitle = "Alert"
-
+    private let kErrorTitle = "Error"
+    private let kNewsSegue = "newsSegueIdentifier"
+    
     private enum AlertMessage: String {
         
         case eEid = "Eid field is mandatory!"
@@ -47,7 +49,9 @@ class LoginViewController: UIViewController {
         showKeyboardSetup()
     }
     
-    // Validate textfields and enter submit action
+    /*
+     Validate textfields and enter submit action
+    */
     
     @IBAction func submitAction(_ sender: UIButton) {
         
@@ -91,7 +95,41 @@ class LoginViewController: UIViewController {
             return
         }
 
+        viewModel.body = ["eid" : eid, "name" : name, "idbarahno" : id, "emailaddress" : email, "unifiednumber" : unifiedNumber, "mobileno" : mobile]
+        
+        // Call Login API with parameters
+
+        Utility.shared.showActivityIndicator()
+        viewModel.getApiData { [weak self] (data) in
+            
+            guard let weakSelf = self else { return }
+            
+            DispatchQueue.main.async {
+                
+                Utility.shared.hideActivityIndicator()
+                
+                guard data != nil else {
+                    weakSelf.presentAlert(withTitle: weakSelf.kErrorTitle, message: weakSelf.viewModel.errorMessage ?? "")
+                    return
+                }
+                
+                // When success response -> Store the referenceNumber in UserDefaults
+                // Push to News feed screen
+                
+                if let referenceNumber = data?.response?.referenceNo {
+                    
+                    UserDefaults.standard.set(referenceNumber, forKey: kReferenceNumberKey)
+                    
+                    weakSelf.performSegue(withIdentifier: weakSelf.kNewsSegue, sender: nil)
+                }
+            }
+        }
+
     }
+
+    /*
+     Remove added observer in deinit
+     */
 
     deinit {
         NotificationCenter.default.removeObserver(self)

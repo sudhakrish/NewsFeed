@@ -169,6 +169,7 @@
                         <outlet property="nameTextField" destination="ybE-Qg-jIm" id="ISo-Jh-jh0"/>
                         <outlet property="scrollBottomConstraint" destination="ev0-UD-PCF" id="B5E-Fa-8Tc"/>
                         <outlet property="unifiedNumberTextField" destination="o0y-K0-kGh" id="LnT-5o-Htd"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="newsSegueIdentifier" id="fM4-hj-9ln"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Uu-aq-RdE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,7 +185,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pGe-D9-TbY">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsCell" rowHeight="100" id="d6e-iN-pAR" customClass="NewsTableCell" customModule="NewsFeed" customModuleProvider="target">
@@ -248,18 +249,11 @@
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="GbK-Si-pbG"/>
                                 </connections>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lcZ-AE-mQf">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="pGe-D9-TbY" firstAttribute="top" secondItem="pAP-Ob-bYd" secondAttribute="top" id="3tC-ki-jAg"/>
                             <constraint firstItem="pGe-D9-TbY" firstAttribute="leading" secondItem="pAP-Ob-bYd" secondAttribute="leading" id="6Lh-Yb-BJd"/>
-                            <constraint firstItem="lcZ-AE-mQf" firstAttribute="centerY" secondItem="6Ik-Wx-XEc" secondAttribute="centerY" id="Qfq-w3-3G1"/>
-                            <constraint firstItem="lcZ-AE-mQf" firstAttribute="centerX" secondItem="6Ik-Wx-XEc" secondAttribute="centerX" id="aoT-xf-EHP"/>
                             <constraint firstAttribute="bottom" secondItem="pGe-D9-TbY" secondAttribute="bottom" id="bOO-tn-nQA"/>
                             <constraint firstItem="pAP-Ob-bYd" firstAttribute="trailing" secondItem="pGe-D9-TbY" secondAttribute="trailing" id="vNm-02-9aC"/>
                         </constraints>
@@ -267,7 +261,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="16B-C8-HS0"/>
                     <connections>
-                        <outlet property="activity" destination="lcZ-AE-mQf" id="Jne-eb-FVZ"/>
                         <outlet property="tableView" destination="pGe-D9-TbY" id="TZZ-Ag-Yf1"/>
                     </connections>
                 </viewController>

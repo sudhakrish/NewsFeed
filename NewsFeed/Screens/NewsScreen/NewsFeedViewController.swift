@@ -10,7 +10,6 @@ import UIKit
 
 class NewsFeedViewController: UIViewController {
     
-    @IBOutlet weak var activity: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
     
     let viewModel = NewsFeedViewModel()
@@ -50,14 +49,15 @@ class NewsFeedViewController: UIViewController {
 
     private func fetchItems() {
         
-        activity.startAnimating()
+        Utility.shared.showActivityIndicator()
+        
         viewModel.getApiData { [weak self] (data) in
             
             guard let weakSelf = self else { return }
             
             DispatchQueue.main.async {
                 
-                weakSelf.activity.stopAnimating()
+                Utility.shared.hideActivityIndicator()
                 weakSelf.refreshControl.endRefreshing()
                 weakSelf.tableView.isHidden = false
 

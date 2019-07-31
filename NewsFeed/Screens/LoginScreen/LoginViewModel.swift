@@ -10,14 +10,40 @@ import UIKit
 
 class LoginViewModel: NSObject {
 
-    func getApiData(completion: @escaping ((NewsModel?) -> ())) {
+    var body : [String: Any] = [:]
+    var errorMessage: String?
+
+    /*
+     Call Login API
+     */
+
+    func getApiData(completion: @escaping ((LoginModel?) -> ())) {
         
-        APIService.serviceRequest(loginRequest, NewsModel.self) { [weak self] (data, error) in
+        APIService.serviceRequest(loginRequest, LoginModel.self) { [weak self] (data, error) in
             
             guard let weakSelf = self else {
                 return
             }
             
+            guard error == nil else {
+                weakSelf.errorMessage = error?.localizedDescription
+                completion(nil)
+                return
+            }
+            
+            guard let model = data as? LoginModel else {
+                weakSelf.errorMessage = "No items, please try again"
+                completion(nil)
+                return
+            }
+            
+            if let success = model.success, success == false {
+                weakSelf.errorMessage = model.message
+                completion(nil)
+                return
+            }
+
+            completion(model)
         }
         
     }
@@ -50,18 +76,12 @@ class LoginViewModel: NSObject {
      */
     
     private var loginUrl : String {
-        return baseUrl + "/iskan/v1/certificates/towhomitmayconcern?local=en"
+        return baseUrl + SuffixUrl.eLogin.url
     }
     
-    private var requestBody : [String: Any] {
-        
-        return ["userId" :  "",
-                "idToken" :  ""]
-    }
-
     private var loginRequest : URLRequest {
         
-        return URLRequest.postRequestWithdefaultConfiguration(loginUrl, requestJson: requestBody)!
+        return URLRequest.postRequestWithdefaultConfiguration(loginUrl, requestJson: body)!
     }
 
 }

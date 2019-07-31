@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A359DE022F20341006B33B0 /* AlertExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A359DDF22F20341006B33B0 /* AlertExtension.swift */; };
+		2A359DE322F23397006B33B0 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A359DE222F23397006B33B0 /* Utility.swift */; };
 		2A9415FA22F0BA3D00EBB375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9415F922F0BA3D00EBB375 /* AppDelegate.swift */; };
 		2A9415FF22F0BA3D00EBB375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A9415FD22F0BA3D00EBB375 /* Main.storyboard */; };
 		2A94160122F0BA3F00EBB375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A94160022F0BA3F00EBB375 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		2A359DDF22F20341006B33B0 /* AlertExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertExtension.swift; sourceTree = "<group>"; };
+		2A359DE222F23397006B33B0 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		2A9415F622F0BA3D00EBB375 /* NewsFeed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsFeed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A9415F922F0BA3D00EBB375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A9415FE22F0BA3D00EBB375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A359DE122F23388006B33B0 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				2A359DE222F23397006B33B0 /* Utility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		2A9415ED22F0BA3D00EBB375 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 				2A94162D22F0D24E00EBB375 /* Extension */,
 				2A94161E22F0BB4500EBB375 /* WebServices */,
 				2A94161C22F0BAF700EBB375 /* Constants */,
+				2A359DE122F23388006B33B0 /* Utility */,
 				2A9415F922F0BA3D00EBB375 /* AppDelegate.swift */,
 				2A9415FD22F0BA3D00EBB375 /* Main.storyboard */,
 				2A94160022F0BA3F00EBB375 /* Assets.xcassets */,
@@ -286,6 +297,7 @@
 				2A94162F22F0D26100EBB375 /* ImageExtension.swift in Sources */,
 				2A94162C22F0CA1700EBB375 /* NewsCellViewModel.swift in Sources */,
 				2A9415FA22F0BA3D00EBB375 /* AppDelegate.swift in Sources */,
+				2A359DE322F23397006B33B0 /* Utility.swift in Sources */,
 				2A94163122F0D2A100EBB375 /* RequestExtension.swift in Sources */,
 				2A359DE022F20341006B33B0 /* AlertExtension.swift in Sources */,
 				2A94162822F0BC6100EBB375 /* NewsTableCell.swift in Sources */,
